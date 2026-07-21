@@ -1,5 +1,4 @@
-.PHONY: build
+.PHONY: help build run dev lint migrate-up migrate-down docker-up docker-down
 
-build:
-	mkdir -p bin
-	go build -o bin/app ./cmd/api
+help:
+@echo Available
