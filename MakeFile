@@ -1,4 +1,4 @@
-.PHONY: help build run dev lint migrate-up migrate-down docs-generate
+.PHONY: help build run dev lint migrate-up migrate-down
 
 help:
 	@echo "Available commands:"
@@ -31,3 +31,9 @@ migrate-up:
 
 migrate-down:
 		migrate -path db/migrattion -database "postgresql://postgresql:password@localhost:5432/ecommerce_shop?sslmode=disabled" down
+
+docker-up:
+	docker compose -f docker/docker-compose.yml up -d
+
+docker-down:
+	docker compose -f docker/docker-compose.yml down
