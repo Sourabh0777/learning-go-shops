@@ -16,6 +16,7 @@ func New(cfg *config.DatabaseConfig) (*gorm.DB, error) {
 		cfg.Host,
 		cfg.User,
 		cfg.Password,
+		cfg.Name,
 		cfg.Port,
 		cfg.SSLMode,
 	)
