@@ -19,7 +19,7 @@ type Category struct {
 }
 type Product struct {
 	ID          uint           `json:"id"          gorm:"primaryKey"`
-	CategoryID  int            `json:"category_id" gorm:"not null"`
+	CategoryID  uint           `json:"category_id" gorm:"not null"`
 	Name        string         `json:"name"        gorm:"not null"`
 	Description string         `json:"description"`
 	Price       int            `json:"price"       gorm:"not null"`
@@ -37,8 +37,13 @@ type Product struct {
 	CartItems  []CartItem     `json:"-"`
 }
 type ProductImage struct {
-}
-type OrderItem struct {
-}
-type CartItem struct {
+	ID        uint           `json:"id"         gorm:"primaryKey"`
+	ProductID uint           `json:"priduct_id" gorm:"not null"`
+	URl       string         `json:"url"        gorm:"not null"`
+	AltText   string         `json:"alt_text"`
+	IsPrimary bool           `json:"is_primary" gorm:"default:false"`
+	CreatedAt time.Time      `json:"created_at"`
+	DeletedAt gorm.DeletedAt `json:"-"          gorm:"index"`
+	//Relationship
+	Product Product `json:"-"`
 }
