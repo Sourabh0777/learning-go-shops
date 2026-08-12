@@ -46,17 +46,22 @@ func main() {
 	}
 	go func() {
 		log.Info().Str("port", cfg.Server.Port).Msg("Starting http Server")
+		// would block forever because ListenAndServe() waits continuously for incoming requests.
 		if err := httpServer.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			log.Fatal().Err(err).Msg("Failed to start http server")
 		}
 	}()
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
-	<-quit
+	signal := <-quit
+	fmt.Println("signal", signal)
 	log.Info().Msg("shutting down the server")
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
-	if err := httpServer.Shutdown(ctx); err != nil {
+
+	err = httpServer.Shutdown(ctx)
+
+	if err != nil {
 		log.Fatal().Err(err).Msg("Failed to shutdown http server")
 	}
 	log.Info().Msg("shutting down database")
