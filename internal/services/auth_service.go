@@ -116,3 +116,6 @@ func (s *AuthService) Logout(user *models.User) (*dto.AuthResponse, error) {
 		RefreshToken: refreshToken,
 	}, nil
 }
+func (s *AuthService) generateAuthResponse(user *models.User) (*dto.AuthResponse, error) {
+
+}
