@@ -31,7 +31,6 @@ func (s *Server) register(c *gin.Context) {
 	}
 
 	util.CreatedResponse(c, "User registered successfully", response)
-	return
 }
 func (s *Server) login(c *gin.Context) {
 	var req dto.LoginRequest

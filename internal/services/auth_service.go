@@ -29,7 +29,7 @@ func (s *AuthService) Register(req *dto.RegisterRequest) (*dto.AuthResponse, err
 	var existingUser models.User
 	// First() → finds the first matching record and fills the data into that variable.
 	if err := s.db.Where("email = ?", req.Email).First(&existingUser).Error; err == nil {
-		return nil, errors.New("User already exists")
+		return nil, errors.New("user already exists")
 	}
 
 	// Hash password
@@ -64,10 +64,10 @@ func (s *AuthService) Register(req *dto.RegisterRequest) (*dto.AuthResponse, err
 func (s *AuthService) Login(req *dto.LoginRequest) (*dto.AuthResponse, error) {
 	var user models.User
 	if err := s.db.Where("email=? AND is_active=?", req.Email, true).First(&user).Error; err != nil {
-		return nil, errors.New("Invalid credentials")
+		return nil, errors.New("invalid credentials")
 	}
 	if !util.CheckPassword(req.Password, user.Password) {
-		return nil, errors.New("Invalid credentials")
+		return nil, errors.New("invalid credentials")
 	}
 	return s.generateAuthResponse(&user)
 }
@@ -75,16 +75,16 @@ func (s *AuthService) Login(req *dto.LoginRequest) (*dto.AuthResponse, error) {
 func (s *AuthService) RefreshToken(req *dto.RefreshTokenRequest) (*dto.AuthResponse, error) {
 	claims, err := util.ValidateToken(req.RefreshToken, s.config.JWT.Secret)
 	if err != nil {
-		return nil, errors.New("Invalid refresh token")
+		return nil, errors.New("invalid refresh token")
 	}
 	var refereshToken models.RefreshToken
 	if err := s.db.Where("token= ? AND expires_at > ?", req.RefreshToken, time.Now()).First(&refereshToken).Error; err != nil {
-		return nil, errors.New("Refresh token not found or expired")
+		return nil, errors.New("refresh token not found or expired")
 	}
 
 	var user models.User
 	if err := s.db.First(&user, claims.UserID).Error; err != nil {
-		return nil, errors.New("User not found")
+		return nil, errors.New("user not found")
 	}
 	s.db.Delete(&refereshToken)
 
