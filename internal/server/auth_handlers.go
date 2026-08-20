@@ -65,18 +65,18 @@ func (s *Server) refreshToken(c *gin.Context) {
 	util.SuccessResponse(c, "Token refreshed successfully", response)
 }
 
-func (s *Server) logout(c *gin.Context) {
-	var req dto.RefreshTokenRequest
-	if err := c.ShouldBindJSON(&req); err != nil {
-		util.BadRequestResponse(c, "Invalid request data", err)
-		return
-	}
-	authService := services.NewAuthService(s.db, s.config)
-	_, err := authService.Logout(&req)
-	if err != nil {
-		util.InternalServerErrorResponse(c, "Logout failed", err)
-		return
-	}
+// func (s *Server) logout(c *gin.Context) {
+// 	var req dto.RefreshTokenRequest
+// 	if err := c.ShouldBindJSON(&req); err != nil {
+// 		util.BadRequestResponse(c, "Invalid request data", err)
+// 		return
+// 	}
+// 	authService := services.NewAuthService(s.db, s.config)
+// 	_, err := authService.Logout(&req)
+// 	if err != nil {
+// 		util.InternalServerErrorResponse(c, "Logout failed", err)
+// 		return
+// 	}
 
-	util.SuccessResponse(c, "Logout successful", nil)
-}
+// 	util.SuccessResponse(c, "Logout successful", nil)
+// }

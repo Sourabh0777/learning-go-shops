@@ -117,5 +117,5 @@ func (s *AuthService) Logout(user *models.User) (*dto.AuthResponse, error) {
 	}, nil
 }
 func (s *AuthService) generateAuthResponse(user *models.User) (*dto.AuthResponse, error) {
-
+	return nil, nil
 }
