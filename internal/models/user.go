@@ -21,8 +21,8 @@ type User struct {
 
 	// Relationships
 	RefreshTokens []RefreshToken `json:"-"`
-	Orders        []OrderItem    `json:"-"`
-	Cart          CartItem       `json:"-"`
+	Orders        []Order        `json:"-"`
+	Cart          Cart           `json:"-"`
 }
 
 type UserRole string

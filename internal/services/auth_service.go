@@ -29,7 +29,7 @@ func (s *AuthService) Register(req *dto.RegisterRequest) (*dto.AuthResponse, err
 	var existingUser models.User
 	// First() → finds the first matching record and fills the data into that variable.
 	if err := s.db.Where("email = ?", req.Email).First(&existingUser).Error; err == nil {
-		return nil, errors.New("user already exists")
+		return nil, errors.New("User already exists")
 	}
 
 	// Hash password
