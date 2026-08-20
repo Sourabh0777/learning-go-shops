@@ -1,0 +1,9 @@
+.git/
+bin/
+tmp/
+node_modules/
+vendor/
+db/migrations/
+docker/
+*.log
+*.tmp

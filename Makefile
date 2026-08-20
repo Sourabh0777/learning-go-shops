@@ -26,7 +26,7 @@ run:
 	go run ./cmd/api
 
 dev:
-	go run ./cmd/api
+	@command -v air >/dev/null 2>&1 && air || go run ./cmd/api
 
 lint: format
 	golangci-lint run ./...

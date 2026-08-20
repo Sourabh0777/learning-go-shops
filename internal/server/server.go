@@ -32,6 +32,7 @@ func (s *Server) SetupRoutes() *gin.Engine {
 	router.GET("/health", s.healthCheck)
 	api := router.Group("/api/v1")
 	{
+
 		auth := api.Group("/auth")
 		{
 			auth.POST("/register", s.register)
@@ -40,6 +41,7 @@ func (s *Server) SetupRoutes() *gin.Engine {
 			// auth.POST("/logout", s.register)1
 		}
 	}
+	// asdsdasd
 	return router
 }
 
@@ -57,3 +59,16 @@ func (s *Server) corsMiddleware() gin.HandlerFunc {
 		}
 	}
 }
+
+// # start development (prefers air)
+// make dev
+
+// # start air directly with config (debug)
+// air -c .air.toml
+
+// # check what's listening on :8080
+// ss -ltnp | grep :8080
+// lsof -i :8080
+
+// # kill process on :8080 (example)
+// kill $(lsof -t -i:8080)
