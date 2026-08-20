@@ -33,12 +33,12 @@ func (s *AuthService) Register(req *dto.RegisterRequest) (*dto.AuthResponse, err
 	}
 
 	// Hash password
-	// hashedPassword, err: = util.HashPassword(req.Password)
+	hashedPassword, _ := util.HashPassword(req.Password)
 
 	// Create user
 	user := models.User{
 		Email:     req.Email,
-		Password:  "hashedPassword",
+		Password:  hashedPassword,
 		FirstName: req.FirstName,
 		LastName:  req.LastName,
 		Phone:     req.Phone,
@@ -117,5 +117,34 @@ func (s *AuthService) Logout(user *models.User) (*dto.AuthResponse, error) {
 	}, nil
 }
 func (s *AuthService) generateAuthResponse(user *models.User) (*dto.AuthResponse, error) {
-	return nil, nil
+	accessToken, refreshToken, err := util.GenerateTokenPair(
+		&s.config.JWT,
+		user.Email,
+		user.ID,
+		string(user.Role),
+	)
+	if err != nil {
+		return nil, err
+	}
+	// refreshTokenModel := models.RefreshToken{
+	// 	UserID:    user.ID,
+	// 	Token:     refreshToken,
+	// 	ExpiresAt: time.Now().Add(s.config.JWT.RefreshTokenExpires),
+	// }
+
+	return &dto.AuthResponse{
+		User: dto.UserResponse{
+			ID:        user.ID,
+			Email:     user.Email,
+			FirstName: user.FirstName,
+			LastName:  user.LastName,
+			Phone:     user.Phone,
+			Role:      string(user.Role),
+			IsActive:  user.IsActive,
+			CreatedAt: user.CreatedAt,
+			UpdatedAt: user.UpdatedAt,
+		},
+		AccessToken:  accessToken,
+		RefreshToken: refreshToken,
+	}, nil
 }
