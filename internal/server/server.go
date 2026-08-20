@@ -59,16 +59,3 @@ func (s *Server) corsMiddleware() gin.HandlerFunc {
 		}
 	}
 }
-
-// # start development (prefers air)
-// make dev
-
-// # start air directly with config (debug)
-// air -c .air.toml
-
-// # check what's listening on :8080
-// ss -ltnp | grep :8080
-// lsof -i :8080
-
-// # kill process on :8080 (example)
-// kill $(lsof -t -i:8080)
