@@ -7,7 +7,7 @@ import (
 )
 
 type Category struct {
-	ID          uint32         `json:"id"          gorm:"primaryKey"`
+	ID          uint           `json:"id"          gorm:"primaryKey"`
 	Name        string         `json:"name"        gorm:"not null"`
 	Description string         `json:"description"`
 	IsActive    bool           `json:"is_active"   gorm:"default:true"`
@@ -22,7 +22,7 @@ type Product struct {
 	CategoryID  uint           `json:"category_id" gorm:"not null"`
 	Name        string         `json:"name"        gorm:"not null"`
 	Description string         `json:"description"`
-	Price       int            `json:"price"       gorm:"not null"`
+	Price       float64        `json:"price"       gorm:"not null"`
 	Stock       int            `json:"Stock"       gorm:"default:0"`
 	SKU         string         `json:"sku"         gorm:"uniqueIndex;not null"`
 	IsActive    bool           `json:"is_active"   gorm:"default:null"`
@@ -39,7 +39,7 @@ type Product struct {
 type ProductImage struct {
 	ID        uint           `json:"id"         gorm:"primaryKey"`
 	ProductID uint           `json:"priduct_id" gorm:"not null"`
-	URl       string         `json:"url"        gorm:"not null"`
+	URL       string         `json:"url"        gorm:"not null"`
 	AltText   string         `json:"alt_text"`
 	IsPrimary bool           `json:"is_primary" gorm:"default:false"`
 	CreatedAt time.Time      `json:"created_at"`
