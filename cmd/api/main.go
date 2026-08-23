@@ -38,9 +38,9 @@ func main() {
 	gin.SetMode(cfg.Server.GinMode)
 	authService := services.NewAuthService(db, cfg)
 	productService := services.NewProductService(db)
-	userService := services.UserService(db)
+	userService := services.NewUserService(db)
 
-	srv := server.New(cfg, db, &log, authService, productService, &userService)
+	srv := server.New(cfg, db, &log, authService, productService, userService)
 	router := srv.SetupRoutes()
 
 	httpServer := http.Server{
