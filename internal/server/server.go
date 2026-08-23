@@ -8,19 +8,31 @@ import (
 	"gorm.io/gorm"
 
 	"learning-go-shop/internal/config"
+	"learning-go-shop/internal/services"
 )
 
 type Server struct {
-	config *config.Config
-	db     *gorm.DB
-	logger *zerolog.Logger
+	config         *config.Config
+	db             *gorm.DB
+	logger         *zerolog.Logger
+	authService    *services.AuthService
+	productService *services.ProductService
+	userService    *services.UserService
 }
 
-func New(cfg *config.Config, db *gorm.DB, logger *zerolog.Logger) *Server {
+func New(cfg *config.Config,
+	db *gorm.DB,
+	logger *zerolog.Logger,
+	authService *services.AuthService,
+	productService *services.ProductService,
+	userService *services.UserService) *Server {
 	return &Server{
-		config: cfg,
-		db:     db,
-		logger: logger,
+		config:         cfg,
+		db:             db,
+		logger:         logger,
+		authService:    authService,
+		productService: productService,
+		userService:    userService,
 	}
 }
 
