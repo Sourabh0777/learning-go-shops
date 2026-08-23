@@ -4,7 +4,6 @@ import (
 	"github.com/gin-gonic/gin"
 
 	"learning-go-shop/internal/dto"
-	"learning-go-shop/internal/services"
 	"learning-go-shop/internal/util"
 )
 
@@ -23,8 +22,7 @@ func (s *Server) register(c *gin.Context) {
 		util.BadRequestResponse(c, "Invalid request data", err)
 		return
 	}
-	authService := services.NewAuthService(s.db, s.config)
-	response, err := authService.Register(&req)
+	response, err := s.authService.Register(&req)
 	if err != nil {
 		util.BadRequestResponse(c, "Registration failed", err)
 		return
@@ -38,8 +36,7 @@ func (s *Server) login(c *gin.Context) {
 		util.BadRequestResponse(c, "Invalid request data", err)
 		return
 	}
-	authService := services.NewAuthService(s.db, s.config)
-	response, err := authService.Login(&req)
+	response, err := s.authService.Login(&req)
 	if err != nil {
 		util.UnauthorizedResponse(c, "Login failed")
 		return
@@ -53,9 +50,7 @@ func (s *Server) refreshToken(c *gin.Context) {
 		util.BadRequestResponse(c, "Invalid request data", err)
 		return
 	}
-	authService := services.NewAuthService(s.db, s.config)
-
-	response, err := authService.RefreshToken(&req)
+	response, err := s.authService.RefreshToken(&req)
 	if err != nil {
 		util.UnauthorizedResponse(c, "Token refresh failed")
 		return
@@ -82,8 +77,7 @@ func (s *Server) refreshToken(c *gin.Context) {
 
 func (s *Server) getProfile(c *gin.Context) {
 	userId := c.GetUint("user_id")
-	authService := services.NewUserService(s.db)
-	profile, err := authService.GetProfile(userId)
+	profile, err := s.userService.GetProfile(userId)
 	if err != nil {
 		util.NotFoundResponse(c, "User not found")
 		return
@@ -99,8 +93,7 @@ func (s *Server) updateProfile(c *gin.Context) {
 		util.BadRequestResponse(c, "Invalid request data", err)
 		return
 	}
-	authService := services.NewUserService(s.db)
-	profile, err := authService.UpdateProfile(userId, &req)
+	profile, err := s.userService.UpdateProfile(userId, &req)
 	if err != nil {
 		util.NotFoundResponse(c, "User not found")
 		return
