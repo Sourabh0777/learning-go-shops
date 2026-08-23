@@ -276,18 +276,18 @@ func (s *Server) uploadProductImage(c *gin.Context) {
 		return
 	}
 
-	// url, err := s.uploadService.UploadProductImage(uint(id), file)
-	// if err != nil {
-	// 	util.InternalServerErrorResponse(c, "Failed to upload image", err)
-	// 	return
-	// }
+	url, err := s.uploadService.UploadProductImage(uint(id), file)
+	if err != nil {
+		util.InternalServerErrorResponse(c, "Failed to upload image", err)
+		return
+	}
 
-	if err := s.productService.AddProductImage(uint(id), "url", file.Filename); err != nil {
+	if err := s.productService.AddProductImage(uint(id), url, file.Filename); err != nil {
 		util.InternalServerErrorResponse(c, "Failed to save image record", err)
 		return
 	}
 
-	util.SuccessResponse(c, "Image uploaded successfully", map[string]string{"url": "url"})
+	util.SuccessResponse(c, "Image uploaded successfully", map[string]string{"url": url})
 }
 
 // @Summary Search products

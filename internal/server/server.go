@@ -18,6 +18,7 @@ type Server struct {
 	authService    *services.AuthService
 	productService *services.ProductService
 	userService    *services.UserService
+	uploadService  services.UploadService
 }
 
 func New(cfg *config.Config,
@@ -87,6 +88,10 @@ func (s *Server) SetupRoutes() *gin.Engine {
 			}
 
 		}
+		api.GET("/categories", s.getCategories)
+		api.GET("/search", s.searchProducts)
+		api.GET("/products", s.getProducts)
+		api.GET("/products/:id", s.getProduct)
 	}
 	// asdsdasd
 	return router
