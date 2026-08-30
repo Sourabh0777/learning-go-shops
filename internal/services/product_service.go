@@ -179,6 +179,7 @@ func (s *ProductService) DeleteProduct(id uint) error {
 	return s.db.Delete(&models.Product{}, id).Error
 }
 
+// Add image
 func (s *ProductService) AddProductImage(productID uint, url, altText string) error {
 
 	var count int64
