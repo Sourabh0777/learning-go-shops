@@ -43,7 +43,7 @@ func main() {
 	userService := services.NewUserService(db)
 	var uploadProvider interfaces.UploadProvider
 	if cfg.Upload.UploadProvider == "s3" {
-		// uploadProvider = providers.NewS3Provider(cfg)
+		uploadProvider = providers.NewS3Provider(cfg)
 	} else {
 		uploadProvider = providers.NewLocalUploadProvider(cfg.Upload.Path)
 	}
