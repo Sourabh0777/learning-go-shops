@@ -43,6 +43,7 @@ func New(cfg *config.Config,
 		userService:    userService,
 		uploadService:  uploadService,
 		cartService:    cartService,
+		orderService:   orderService,
 	}
 }
 
