@@ -12,6 +12,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
+	docs "learning-go-shop/docs"
 	"learning-go-shop/internal/config"
 	"learning-go-shop/internal/database"
 	"learning-go-shop/internal/interfaces"
@@ -48,6 +49,10 @@ func main() {
 	if err != nil {
 		log.Fatal().Err(err).Msg("Failed to load config")
 	}
+
+	// configure generated swagger docs
+	docs.SwaggerInfo.Host = fmt.Sprintf("localhost:%s", cfg.Server.Port)
+	docs.SwaggerInfo.Schemes = []string{"http"}
 	db, err := database.New(&cfg.Database)
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to connect to database")
