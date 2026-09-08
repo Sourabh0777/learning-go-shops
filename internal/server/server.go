@@ -62,6 +62,8 @@ func (s *Server) SetupRoutes() *gin.Engine {
 
 	router.StaticFile("/api-docs", "./docs/rapidoc.html")
 
+	// router.Static("/uploads", "./uploads")
+
 	api := router.Group("/api/v1")
 	{
 
