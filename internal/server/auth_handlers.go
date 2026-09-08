@@ -13,8 +13,8 @@ import (
 // @Accept json
 // @Produce json
 // @Param request body dto.RegisterRequest true "User registration data"
-// @Success 201 {object} utils.Response{data=dto.AuthResponse} "User registered successfully"
-// @Failure 400 {object} utils.Response "Invalid request data or user already exists"
+// @Success 201 {object} util.Response{data=dto.AuthResponse} "User registered successfully"
+// @Failure 400 {object} util.Response "Invalid request data or user already exists"
 // @Router /auth/register [post]
 func (s *Server) register(c *gin.Context) {
 	var req dto.RegisterRequest
@@ -37,8 +37,8 @@ func (s *Server) register(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param request body dto.LoginRequest true "User login credentials"
-// @Success 200 {object} utils.Response{data=dto.AuthResponse} "Login successful"
-// @Failure 401 {object} utils.Response "Invalid credentials"
+// @Success 200 {object} util.Response{data=dto.AuthResponse} "Login successful"
+// @Failure 401 {object} util.Response "Invalid credentials"
 // @Router /auth/login [post]
 func (s *Server) login(c *gin.Context) {
 	var req dto.LoginRequest
@@ -61,8 +61,8 @@ func (s *Server) login(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Param request body dto.RefreshTokenRequest true "Refresh token"
-// @Success 200 {object} utils.Response{data=dto.AuthResponse} "Token refreshed successfully"
-// @Failure 401 {object} utils.Response "Invalid refresh token"
+// @Success 200 {object} util.Response{data=dto.AuthResponse} "Token refreshed successfully"
+// @Failure 401 {object} util.Response "Invalid refresh token"
 // @Router /auth/refresh [post]
 func (s *Server) refreshToken(c *gin.Context) {
 	var req dto.RefreshTokenRequest
@@ -84,9 +84,9 @@ func (s *Server) refreshToken(c *gin.Context) {
 // @Tags User
 // @Produce json
 // @Security BearerAuth
-// @Success 200 {object} utils.Response{data=dto.UserResponse} "Profile retrieved successfully"
-// @Failure 401 {object} utils.Response "Unauthorized"
-// @Failure 404 {object} utils.Response "User not found"
+// @Success 200 {object} util.Response{data=dto.UserResponse} "Profile retrieved successfully"
+// @Failure 401 {object} util.Response "Unauthorized"
+// @Failure 404 {object} util.Response "User not found"
 // @Router /users/profile [get]
 func (s *Server) getProfile(c *gin.Context) {
 	userId := c.GetUint("user_id")
@@ -105,9 +105,9 @@ func (s *Server) getProfile(c *gin.Context) {
 // @Produce json
 // @Security BearerAuth
 // @Param request body dto.UpdateProfileRequest true "Profile update data"
-// @Success 200 {object} utils.Response{data=dto.UserResponse} "Profile updated successfully"
-// @Failure 400 {object} utils.Response "Invalid request data"
-// @Failure 401 {object} utils.Response "Unauthorized"
+// @Success 200 {object} util.Response{data=dto.UserResponse} "Profile updated successfully"
+// @Failure 400 {object} util.Response "Invalid request data"
+// @Failure 401 {object} util.Response "Unauthorized"
 // @Router /users/profile [put]
 func (s *Server) updateProfile(c *gin.Context) {
 	userId := c.GetUint("user_id")

@@ -11,8 +11,7 @@ const docTemplate = `{
         "title": "{{.Title}}",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
-            "name": "Joseph Abah",
-            "url": "http://linkedin.com/in/abahjoseph",
+            "name": "Sourabh verma",
             "email": "no-email@no-email"
         },
         "license": {
@@ -44,7 +43,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.LoginRequest"
+                            "$ref": "#/definitions/learning-go-shop_internal_dto.LoginRequest"
                         }
                     }
                 ],
@@ -54,13 +53,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.AuthResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.AuthResponse"
                                         }
                                     }
                                 }
@@ -70,47 +69,7 @@ const docTemplate = `{
                     "401": {
                         "description": "Invalid credentials",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
-                        }
-                    }
-                }
-            }
-        },
-        "/auth/logout": {
-            "post": {
-                "description": "Invalidate refresh token and logout user",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Authentication"
-                ],
-                "summary": "User logout",
-                "parameters": [
-                    {
-                        "description": "Refresh token to invalidate",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.RefreshTokenRequest"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Logout successful",
-                        "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid request data",
-                        "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -136,7 +95,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.RefreshTokenRequest"
+                            "$ref": "#/definitions/learning-go-shop_internal_dto.RefreshTokenRequest"
                         }
                     }
                 ],
@@ -146,13 +105,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.AuthResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.AuthResponse"
                                         }
                                     }
                                 }
@@ -162,7 +121,7 @@ const docTemplate = `{
                     "401": {
                         "description": "Invalid refresh token",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -188,7 +147,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.RegisterRequest"
+                            "$ref": "#/definitions/learning-go-shop_internal_dto.RegisterRequest"
                         }
                     }
                 ],
@@ -198,13 +157,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.AuthResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.AuthResponse"
                                         }
                                     }
                                 }
@@ -214,7 +173,7 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid request data or user already exists",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -241,13 +200,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.CartResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.CartResponse"
                                         }
                                     }
                                 }
@@ -257,13 +216,13 @@ const docTemplate = `{
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "404": {
                         "description": "Cart not found",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -294,7 +253,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.AddToCartRequest"
+                            "$ref": "#/definitions/learning-go-shop_internal_dto.AddToCartRequest"
                         }
                     }
                 ],
@@ -304,13 +263,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.CartResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.CartResponse"
                                         }
                                     }
                                 }
@@ -320,13 +279,13 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid request data or insufficient stock",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -364,7 +323,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.UpdateCartItemRequest"
+                            "$ref": "#/definitions/learning-go-shop_internal_dto.UpdateCartItemRequest"
                         }
                     }
                 ],
@@ -374,13 +333,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.CartResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.CartResponse"
                                         }
                                     }
                                 }
@@ -390,13 +349,13 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid request data or insufficient stock",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -425,19 +384,19 @@ const docTemplate = `{
                     "200": {
                         "description": "Item removed from cart successfully",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "400": {
                         "description": "Invalid cart item ID",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -459,7 +418,7 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
@@ -467,7 +426,7 @@ const docTemplate = `{
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.CategoryResponse"
+                                                "$ref": "#/definitions/learning-go-shop_internal_dto.CategoryResponse"
                                             }
                                         }
                                     }
@@ -478,7 +437,7 @@ const docTemplate = `{
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -507,7 +466,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.CreateCategoryRequest"
+                            "$ref": "#/definitions/learning-go-shop_internal_dto.CreateCategoryRequest"
                         }
                     }
                 ],
@@ -517,13 +476,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.CategoryResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.CategoryResponse"
                                         }
                                     }
                                 }
@@ -533,19 +492,19 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid request data",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "403": {
                         "description": "Admin access required",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -583,7 +542,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.UpdateCategoryRequest"
+                            "$ref": "#/definitions/learning-go-shop_internal_dto.UpdateCategoryRequest"
                         }
                     }
                 ],
@@ -593,13 +552,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.CategoryResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.CategoryResponse"
                                         }
                                     }
                                 }
@@ -609,19 +568,19 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid request data",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "403": {
                         "description": "Admin access required",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -650,25 +609,25 @@ const docTemplate = `{
                     "200": {
                         "description": "Category deleted successfully",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "400": {
                         "description": "Invalid category ID",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "403": {
                         "description": "Admin access required",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -711,7 +670,7 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.PaginatedResponse"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.PaginatedResponse"
                                 },
                                 {
                                     "type": "object",
@@ -719,7 +678,7 @@ const docTemplate = `{
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.OrderResponse"
+                                                "$ref": "#/definitions/learning-go-shop_internal_dto.OrderResponse"
                                             }
                                         }
                                     }
@@ -730,13 +689,13 @@ const docTemplate = `{
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -761,13 +720,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.OrderResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.OrderResponse"
                                         }
                                     }
                                 }
@@ -777,13 +736,13 @@ const docTemplate = `{
                     "400": {
                         "description": "Cart is empty or insufficient stock",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -819,13 +778,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.OrderResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.OrderResponse"
                                         }
                                     }
                                 }
@@ -835,19 +794,19 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid order ID",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "404": {
                         "description": "Order not found",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -885,7 +844,7 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.PaginatedResponse"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.PaginatedResponse"
                                 },
                                 {
                                     "type": "object",
@@ -893,7 +852,7 @@ const docTemplate = `{
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.ProductResponse"
+                                                "$ref": "#/definitions/learning-go-shop_internal_dto.ProductResponse"
                                             }
                                         }
                                     }
@@ -904,7 +863,7 @@ const docTemplate = `{
                     "500": {
                         "description": "Internal server error",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -933,7 +892,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.CreateProductRequest"
+                            "$ref": "#/definitions/learning-go-shop_internal_dto.CreateProductRequest"
                         }
                     }
                 ],
@@ -943,13 +902,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.ProductResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.ProductResponse"
                                         }
                                     }
                                 }
@@ -959,19 +918,19 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid request data",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "403": {
                         "description": "Admin access required",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -1002,13 +961,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.ProductResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.ProductResponse"
                                         }
                                     }
                                 }
@@ -1018,13 +977,13 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid product ID",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "404": {
                         "description": "Product not found",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -1060,7 +1019,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.UpdateProductRequest"
+                            "$ref": "#/definitions/learning-go-shop_internal_dto.UpdateProductRequest"
                         }
                     }
                 ],
@@ -1070,13 +1029,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.ProductResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.ProductResponse"
                                         }
                                     }
                                 }
@@ -1086,19 +1045,19 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid request data",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "403": {
                         "description": "Admin access required",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -1127,25 +1086,25 @@ const docTemplate = `{
                     "200": {
                         "description": "Product deleted successfully",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "400": {
                         "description": "Invalid product ID",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "403": {
                         "description": "Admin access required",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -1191,7 +1150,7 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
@@ -1210,19 +1169,107 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid request or file",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "403": {
                         "description": "Admin access required",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/search": {
+            "get": {
+                "description": "Search products using full-text search with ranking",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Search products",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Search query",
+                        "name": "q",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "default": 1,
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "default": 10,
+                        "description": "Items per page",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Filter by category ID",
+                        "name": "category_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "number",
+                        "description": "Minimum price filter",
+                        "name": "min_price",
+                        "in": "query"
+                    },
+                    {
+                        "type": "number",
+                        "description": "Maximum price filter",
+                        "name": "max_price",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Search results",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.PaginatedResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/learning-go-shop_internal_dto.ProductSearchResult"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid search query",
+                        "schema": {
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -1249,13 +1296,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.UserResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.UserResponse"
                                         }
                                     }
                                 }
@@ -1265,13 +1312,13 @@ const docTemplate = `{
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "404": {
                         "description": "User not found",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -1300,7 +1347,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.UpdateProfileRequest"
+                            "$ref": "#/definitions/learning-go-shop_internal_dto.UpdateProfileRequest"
                         }
                     }
                 ],
@@ -1310,13 +1357,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                                    "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.UserResponse"
+                                            "$ref": "#/definitions/learning-go-shop_internal_dto.UserResponse"
                                         }
                                     }
                                 }
@@ -1326,13 +1373,13 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid request data",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     },
                     "401": {
                         "description": "Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.Response"
+                            "$ref": "#/definitions/learning-go-shop_internal_util.Response"
                         }
                     }
                 }
@@ -1340,7 +1387,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "github_com_joefazee_learning-go-shop_internal_dto.AddToCartRequest": {
+        "learning-go-shop_internal_dto.AddToCartRequest": {
             "type": "object",
             "required": [
                 "product_id",
@@ -1356,7 +1403,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.AuthResponse": {
+        "learning-go-shop_internal_dto.AuthResponse": {
             "type": "object",
             "properties": {
                 "access_token": {
@@ -1366,35 +1413,44 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "user": {
-                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.UserResponse"
+                    "$ref": "#/definitions/learning-go-shop_internal_dto.UserResponse"
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.CartItemResponse": {
+        "learning-go-shop_internal_dto.CartItemResponse": {
             "type": "object",
             "properties": {
+                "created_at": {
+                    "type": "string"
+                },
                 "id": {
                     "type": "integer"
                 },
                 "product": {
-                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.ProductResponse"
+                    "$ref": "#/definitions/learning-go-shop_internal_dto.ProductResponse"
                 },
                 "quantity": {
                     "type": "integer"
                 },
                 "subtotal": {
                     "type": "number"
+                },
+                "updated_at": {
+                    "type": "string"
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.CartResponse": {
+        "learning-go-shop_internal_dto.CartResponse": {
             "type": "object",
             "properties": {
                 "cart_items": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.CartItemResponse"
+                        "$ref": "#/definitions/learning-go-shop_internal_dto.CartItemResponse"
                     }
+                },
+                "created_at": {
+                    "type": "string"
                 },
                 "id": {
                     "type": "integer"
@@ -1402,14 +1458,20 @@ const docTemplate = `{
                 "total": {
                     "type": "number"
                 },
+                "updated_at": {
+                    "type": "string"
+                },
                 "user_id": {
                     "type": "integer"
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.CategoryResponse": {
+        "learning-go-shop_internal_dto.CategoryResponse": {
             "type": "object",
             "properties": {
+                "created_at": {
+                    "type": "string"
+                },
                 "description": {
                     "type": "string"
                 },
@@ -1421,10 +1483,13 @@ const docTemplate = `{
                 },
                 "name": {
                     "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.CreateCategoryRequest": {
+        "learning-go-shop_internal_dto.CreateCategoryRequest": {
             "type": "object",
             "required": [
                 "name"
@@ -1438,7 +1503,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.CreateProductRequest": {
+        "learning-go-shop_internal_dto.CreateProductRequest": {
             "type": "object",
             "required": [
                 "category_id",
@@ -1468,7 +1533,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.LoginRequest": {
+        "learning-go-shop_internal_dto.LoginRequest": {
             "type": "object",
             "required": [
                 "email",
@@ -1479,13 +1544,17 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "password": {
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 8
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.OrderItemResponse": {
+        "learning-go-shop_internal_dto.OrderItemResponse": {
             "type": "object",
             "properties": {
+                "created_at": {
+                    "type": "string"
+                },
                 "id": {
                     "type": "integer"
                 },
@@ -1493,14 +1562,14 @@ const docTemplate = `{
                     "type": "number"
                 },
                 "product": {
-                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.ProductResponse"
+                    "$ref": "#/definitions/learning-go-shop_internal_dto.ProductResponse"
                 },
                 "quantity": {
                     "type": "integer"
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.OrderResponse": {
+        "learning-go-shop_internal_dto.OrderResponse": {
             "type": "object",
             "properties": {
                 "created_at": {
@@ -1512,7 +1581,7 @@ const docTemplate = `{
                 "order_items": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.OrderItemResponse"
+                        "$ref": "#/definitions/learning-go-shop_internal_dto.OrderItemResponse"
                     }
                 },
                 "status": {
@@ -1521,15 +1590,21 @@ const docTemplate = `{
                 "total_amount": {
                     "type": "number"
                 },
+                "updated_at": {
+                    "type": "string"
+                },
                 "user_id": {
                     "type": "integer"
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.ProductImageResponse": {
+        "learning-go-shop_internal_dto.ProductImageResponse": {
             "type": "object",
             "properties": {
                 "alt_text": {
+                    "type": "string"
+                },
+                "created_at": {
                     "type": "string"
                 },
                 "id": {
@@ -1543,14 +1618,17 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.ProductResponse": {
+        "learning-go-shop_internal_dto.ProductResponse": {
             "type": "object",
             "properties": {
                 "category": {
-                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.CategoryResponse"
+                    "$ref": "#/definitions/learning-go-shop_internal_dto.CategoryResponse"
                 },
                 "category_id": {
                     "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
                 },
                 "description": {
                     "type": "string"
@@ -1561,7 +1639,7 @@ const docTemplate = `{
                 "images": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_dto.ProductImageResponse"
+                        "$ref": "#/definitions/learning-go-shop_internal_dto.ProductImageResponse"
                     }
                 },
                 "is_active": {
@@ -1578,10 +1656,60 @@ const docTemplate = `{
                 },
                 "stock": {
                     "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.RefreshTokenRequest": {
+        "learning-go-shop_internal_dto.ProductSearchResult": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "$ref": "#/definitions/learning-go-shop_internal_dto.CategoryResponse"
+                },
+                "category_id": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "images": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/learning-go-shop_internal_dto.ProductImageResponse"
+                    }
+                },
+                "is_active": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "rank": {
+                    "type": "number"
+                },
+                "sku": {
+                    "type": "string"
+                },
+                "stock": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "learning-go-shop_internal_dto.RefreshTokenRequest": {
             "type": "object",
             "required": [
                 "refresh_token"
@@ -1592,7 +1720,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.RegisterRequest": {
+        "learning-go-shop_internal_dto.RegisterRequest": {
             "type": "object",
             "required": [
                 "email",
@@ -1619,7 +1747,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.UpdateCartItemRequest": {
+        "learning-go-shop_internal_dto.UpdateCartItemRequest": {
             "type": "object",
             "required": [
                 "quantity"
@@ -1631,7 +1759,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.UpdateCategoryRequest": {
+        "learning-go-shop_internal_dto.UpdateCategoryRequest": {
             "type": "object",
             "required": [
                 "name"
@@ -1648,7 +1776,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.UpdateProductRequest": {
+        "learning-go-shop_internal_dto.UpdateProductRequest": {
             "type": "object",
             "required": [
                 "category_id",
@@ -1677,7 +1805,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.UpdateProfileRequest": {
+        "learning-go-shop_internal_dto.UpdateProfileRequest": {
             "type": "object",
             "required": [
                 "first_name",
@@ -1695,9 +1823,12 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_dto.UserResponse": {
+        "learning-go-shop_internal_dto.UserResponse": {
             "type": "object",
             "properties": {
+                "created_at": {
+                    "type": "string"
+                },
                 "email": {
                     "type": "string"
                 },
@@ -1718,10 +1849,13 @@ const docTemplate = `{
                 },
                 "role": {
                     "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_utils.PaginatedResponse": {
+        "learning-go-shop_internal_util.PaginatedResponse": {
             "type": "object",
             "properties": {
                 "data": {},
@@ -1732,14 +1866,14 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "meta": {
-                    "$ref": "#/definitions/github_com_joefazee_learning-go-shop_internal_utils.PaginationMeta"
+                    "$ref": "#/definitions/learning-go-shop_internal_util.PaginationMeta"
                 },
                 "success": {
                     "type": "boolean"
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_utils.PaginationMeta": {
+        "learning-go-shop_internal_util.PaginationMeta": {
             "type": "object",
             "properties": {
                 "limit": {
@@ -1756,7 +1890,7 @@ const docTemplate = `{
                 }
             }
         },
-        "github_com_joefazee_learning-go-shop_internal_utils.Response": {
+        "learning-go-shop_internal_util.Response": {
             "type": "object",
             "properties": {
                 "data": {},

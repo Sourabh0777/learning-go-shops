@@ -14,9 +14,9 @@ import (
 // @Tags Cart
 // @Produce json
 // @Security BearerAuth
-// @Success 200 {object} utils.Response{data=dto.CartResponse} "Cart retrieved successfully"
-// @Failure 401 {object} utils.Response "Unauthorized"
-// @Failure 404 {object} utils.Response "Cart not found"
+// @Success 200 {object} util.Response{data=dto.CartResponse} "Cart retrieved successfully"
+// @Failure 401 {object} util.Response "Unauthorized"
+// @Failure 404 {object} util.Response "Cart not found"
 // @Router /cart [get]
 func (s *Server) getCart(c *gin.Context) {
 	userID := c.GetUint("user_id")
@@ -37,9 +37,9 @@ func (s *Server) getCart(c *gin.Context) {
 // @Produce json
 // @Security BearerAuth
 // @Param request body dto.AddToCartRequest true "Item to add to cart"
-// @Success 200 {object} utils.Response{data=dto.CartResponse} "Item added to cart successfully"
-// @Failure 400 {object} utils.Response "Invalid request data or insufficient stock"
-// @Failure 401 {object} utils.Response "Unauthorized"
+// @Success 200 {object} util.Response{data=dto.CartResponse} "Item added to cart successfully"
+// @Failure 400 {object} util.Response "Invalid request data or insufficient stock"
+// @Failure 401 {object} util.Response "Unauthorized"
 // @Router /cart/items [post]
 func (s *Server) addToCart(c *gin.Context) {
 
@@ -68,9 +68,9 @@ func (s *Server) addToCart(c *gin.Context) {
 // @Security BearerAuth
 // @Param id path int true "Cart Item ID"
 // @Param request body dto.UpdateCartItemRequest true "New quantity"
-// @Success 200 {object} utils.Response{data=dto.CartResponse} "Cart item updated successfully"
-// @Failure 400 {object} utils.Response "Invalid request data or insufficient stock"
-// @Failure 401 {object} utils.Response "Unauthorized"
+// @Success 200 {object} util.Response{data=dto.CartResponse} "Cart item updated successfully"
+// @Failure 400 {object} util.Response "Invalid request data or insufficient stock"
+// @Failure 401 {object} util.Response "Unauthorized"
 // @Router /cart/items/{id} [put]
 func (s *Server) updateCartItem(c *gin.Context) {
 	userID := c.GetUint("user_id")
@@ -101,9 +101,9 @@ func (s *Server) updateCartItem(c *gin.Context) {
 // @Tags Cart
 // @Security BearerAuth
 // @Param id path int true "Cart Item ID"
-// @Success 200 {object} utils.Response "Item removed from cart successfully"
-// @Failure 400 {object} utils.Response "Invalid cart item ID"
-// @Failure 401 {object} utils.Response "Unauthorized"
+// @Success 200 {object} util.Response "Item removed from cart successfully"
+// @Failure 400 {object} util.Response "Invalid cart item ID"
+// @Failure 401 {object} util.Response "Unauthorized"
 // @Router /cart/items/{id} [delete]
 func (s *Server) removeFromCart(c *gin.Context) {
 	userID := c.GetUint("user_id")
