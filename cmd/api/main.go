@@ -15,6 +15,7 @@ import (
 	docs "learning-go-shop/docs"
 	"learning-go-shop/internal/config"
 	"learning-go-shop/internal/database"
+	"learning-go-shop/internal/events"
 	"learning-go-shop/internal/interfaces"
 	"learning-go-shop/internal/logger"
 	"learning-go-shop/internal/providers"
@@ -59,11 +60,16 @@ func main() {
 	}
 	mainDB, err := db.DB()
 	if err != nil {
-		log.Fatal().Err(err).Msg("Failed to get database connection")
+		log.Fatal().Err(err).Msg("failed to get database connection")
 	}
 	defer mainDB.Close()
 	gin.SetMode(cfg.Server.GinMode)
-	authService := services.NewAuthService(db, cfg)
+	ctx := context.Background()
+	eventPublisher, err := events.NewEventPublisher(ctx, &cfg.AWS)
+	if err != nil {
+		log.Fatal().Err(err).Msg("failed to create event publisher")
+	}
+	authService := services.NewAuthService(db, cfg, eventPublisher)
 	productService := services.NewProductService(db)
 	userService := services.NewUserService(db)
 	cartService := services.NewCartService(db)

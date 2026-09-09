@@ -9,19 +9,22 @@ import (
 
 	"learning-go-shop/internal/config"
 	"learning-go-shop/internal/dto"
+	"learning-go-shop/internal/events"
 	"learning-go-shop/internal/models"
 	"learning-go-shop/internal/util"
 )
 
 type AuthService struct {
-	db     *gorm.DB
-	config *config.Config
+	db             *gorm.DB
+	config         *config.Config
+	eventPublisher events.Publisher
 }
 
-func NewAuthService(db *gorm.DB, config *config.Config) *AuthService {
+func NewAuthService(db *gorm.DB, config *config.Config, eventPublisher events.Publisher) *AuthService {
 	return &AuthService{
-		db:     db,
-		config: config,
+		db:             db,
+		config:         config,
+		eventPublisher: eventPublisher,
 	}
 }
 
