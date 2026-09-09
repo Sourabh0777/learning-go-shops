@@ -26,10 +26,9 @@ services:
     container_name: localstack_container
     environment:
       - SERVICES=s3,sqs
-      - DEFAULT_REGION=us-east-1
       - AWS_ACCESS_KEY_ID=test
       - AWS_SECRET_ACCESS_KEY=test
-      - DATA_DIR=/tmp/localstack/data
+      - PERSISTENCE=1
     ports:
       - "4566:4566" # LocalStack Gateway\
     volumes:
