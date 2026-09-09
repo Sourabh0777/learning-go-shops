@@ -129,12 +129,16 @@ func (s *AuthService) generateAuthResponse(user *models.User) (*dto.AuthResponse
 	if err != nil {
 		return nil, err
 	}
-	// refreshTokenModel := models.RefreshToken{
-	// 	UserID:    user.ID,
-	// 	Token:     refreshToken,
-	// 	ExpiresAt: time.Now().Add(s.config.JWT.RefreshTokenExpires),
-	// }
-
+	refreshTokenModel := models.RefreshToken{
+		UserID:    user.ID,
+		Token:     refreshToken,
+		ExpiresAt: time.Now().Add(s.config.JWT.RefreshTokenExpires),
+	}
+	s.db.Create(&refreshTokenModel)
+	err = s.eventPublisher.Publish("USER_LOGGED_IN", user, map[string]string{})
+	if err != nil {
+		return nil, fmt.Errorf("unable to publish user login event", err)
+	}
 	return &dto.AuthResponse{
 		User: dto.UserResponse{
 			ID:        user.ID,
